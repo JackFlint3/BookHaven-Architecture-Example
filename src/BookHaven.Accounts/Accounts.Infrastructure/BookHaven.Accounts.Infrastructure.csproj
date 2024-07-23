@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BookHaven.Core\Core.Infrastructure\BookHaven.Core.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\BookHaven.Orders\BookHaven.Orders.Infrastructure\BookHaven.Orders.Infrastructure.csproj" />
+    <ProjectReference Include="..\Accounts.Application\BookHaven.Accounts.Application.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLHierarchy</id><coordinates><x>450</x><y>200</y><w>270</w><h>460</h></coordinates><panel_attributes>type=Package
+BookHaven.sln
+	Core
+		Domain.csproj
+		Application.csproj
+		Infrastructure.csproj
+	Orders
+		Domain.csproj
+		Application.csproj
+		Infrastructure.csproj
+	Accounts
+		Domain.csproj
+		Application.csproj
+		Infrastructure.csproj
+	UI.csproj</panel_attributes><additional_attributes></additional_attributes></element></diagram>

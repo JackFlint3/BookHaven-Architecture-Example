@@ -1,0 +1,47 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>198</x><y>63</y><w>153</w><h>63</h></coordinates><panel_attributes>Cover
+--
+-Text: String {composite}
+-Art: String {composite}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>117</x><y>252</y><w>90</w><h>27</h></coordinates><panel_attributes>ePUB</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>513</x><y>63</y><w>189</w><h>99</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+Core::Book
+{Aggregate Root}
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>198</x><y>144</y><w>153</w><h>63</h></coordinates><panel_attributes>/ISBN/
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>225</x><y>252</y><w>90</w><h>27</h></coordinates><panel_attributes>PDF</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>333</x><y>252</y><w>90</w><h>27</h></coordinates><panel_attributes>Print</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>153</x><y>198</y><w>135</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>130;10;130;30;10;30;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>261</x><y>198</y><w>135</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;30;130;30;130;60</additional_attributes></element><element><id>Relation</id><coordinates><x>261</x><y>198</y><w>27</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>342</x><y>135</y><w>189</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+published through
+m2=0..*</panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>342</x><y>63</y><w>189</w><h>81</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes><additional_attributes>190;70;150;70;150;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>810</x><y>189</y><w>90</w><h>45</h></coordinates><panel_attributes>Genre
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>810</x><y>126</y><w>90</w><h>45</h></coordinates><panel_attributes>Author
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>117</y><w>135</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+written by
+m2=1..*</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>144</y><w>135</w><h>81</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+m1=1..*
+m2=0..*</panel_attributes><additional_attributes>130;60;50;60;50;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>513</x><y>432</y><w>189</w><h>99</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+Orders::Order
+{Aggregate Root}
+--
+-Placed: Date</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>342</x><y>189</y><w>612</w><h>243</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+m1=1..*</panel_attributes><additional_attributes>10;10;290;10;290;180;660;180;660;250;630;250</additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>378</y><w>90</w><h>45</h></coordinates><panel_attributes>Delivery
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>513</y><w>90</w><h>45</h></coordinates><panel_attributes>Destination
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>378</y><w>144</w><h>144</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1..*</panel_attributes><additional_attributes>10;130;50;130;50;10;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>504</y><w>144</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+delivered to
+m2=1</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>513</x><y>693</y><w>189</w><h>135</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+Accounts::Account
+{Aggregate Root}
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>738</y><w>90</w><h>45</h></coordinates><panel_attributes>Phone
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>783</y><w>117</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+identified by</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>333</x><y>792</y><w>90</w><h>45</h></coordinates><panel_attributes>Email
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>738</y><w>144</w><h>63</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;50;70;50;70;10;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>675</y><w>144</w><h>99</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;90;50;90;50;10;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>468</x><y>450</y><w>63</w><h>333</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>50;350;10;350;10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>342</x><y>171</y><w>630</w><h>684</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..*</panel_attributes><additional_attributes>630;740;680;740;680;120;310;120;310;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>972</x><y>612</y><w>72</w><h>279</h></coordinates><panel_attributes>lt=.
+&lt;&lt;Accounts&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>972</x><y>324</y><w>72</w><h>270</h></coordinates><panel_attributes>lt=.
+&lt;&lt;Orders&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>972</x><y>36</y><w>72</w><h>270</h></coordinates><panel_attributes>lt=.
+&lt;&lt;Core&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>675</y><w>90</w><h>45</h></coordinates><panel_attributes>Address
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>306</y><w>954</w><h>27</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;1040;10</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>594</y><w>954</w><h>27</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;1040;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>801</y><w>90</w><h>45</h></coordinates><panel_attributes>Basket
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>801</y><w>144</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>855</x><y>450</y><w>90</w><h>45</h></coordinates><panel_attributes>Carrier
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>747</x><y>450</y><w>90</w><h>45</h></coordinates><panel_attributes>Download
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>783</x><y>414</y><w>99</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;10;90;30;10;30;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>855</x><y>414</y><w>63</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;30;50;30;50;40</additional_attributes></element></diagram>

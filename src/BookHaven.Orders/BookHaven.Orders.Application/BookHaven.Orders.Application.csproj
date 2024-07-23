@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Schema\**" />
+    <EmbeddedResource Remove="Schema\**" />
+    <None Remove="Schema\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BookHaven.Core\Core.Application\BookHaven.Core.Application.csproj" />
+    <ProjectReference Include="..\..\BookHaven.Core\Core.Domain\BookHaven.Core.Domain.csproj" />
+    <ProjectReference Include="..\BookHaven.Orders.Domain\BookHaven.Orders.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

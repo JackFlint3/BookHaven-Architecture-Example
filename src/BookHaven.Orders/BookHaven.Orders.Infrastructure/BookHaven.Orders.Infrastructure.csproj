@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BookHaven.Core\Core.Infrastructure\BookHaven.Core.Infrastructure.csproj" />
+    <ProjectReference Include="..\BookHaven.Orders.Application\BookHaven.Orders.Application.csproj" />
+    <ProjectReference Include="..\BookHaven.Orders.Domain\BookHaven.Orders.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
