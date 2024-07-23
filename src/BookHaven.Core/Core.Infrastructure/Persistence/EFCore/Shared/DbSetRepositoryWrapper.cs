@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BookHaven.Core.Infrastructure.Persistence.EFCore.Shared
@@ -14,7 +13,7 @@ namespace BookHaven.Core.Infrastructure.Persistence.EFCore.Shared
         where TKey : IEquatable<TKey>
     {
 
-        DbSet<TEntity>? WrappingSet {  get; set; }
+        DbSet<TEntity>? WrappingSet { get; set; }
 
         private DbSetRepositoryWrapper(DbSet<TEntity> wrappingSet)
         {

@@ -1,5 +1,4 @@
-﻿using BookHaven.Core.Infrastructure.Persistence.EFCore.Configurations;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace BookHaven.Orders.Infrastructure.Persistence.EFCore.Configurations
 {

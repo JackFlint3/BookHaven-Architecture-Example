@@ -1,5 +1,5 @@
-using BookHaven.Core.Infrastructure.Extensions;
 using BookHaven.Accounts.Infrastructure.Extensions;
+using BookHaven.Core.Infrastructure.Extensions;
 using BookHaven.Orders.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

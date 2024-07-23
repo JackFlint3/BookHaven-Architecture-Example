@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BookHaven.Accounts.Application.Schema.DTO
+﻿namespace BookHaven.Accounts.Application.Schema.DTO
 {
     public record EmailDto
     {

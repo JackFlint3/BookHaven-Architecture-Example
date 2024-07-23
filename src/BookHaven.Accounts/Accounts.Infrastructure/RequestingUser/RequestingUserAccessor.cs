@@ -2,8 +2,6 @@
 using BookHaven.Accounts.Domain.Entities;
 using BookHaven.Core.Application.Interfaces;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +23,7 @@ namespace BookHaven.Accounts.Infrastructure.RequestingUser
         {
             var session = Accessor.HttpContext.Session;
             if (!session.IsAvailable) await session.LoadAsync();
-            if (session.TryGetValue(REQUESTING_USER_LOCATION, out var requestingUserIdentity)) 
+            if (session.TryGetValue(REQUESTING_USER_LOCATION, out var requestingUserIdentity))
             {
                 var email = System.Text.Encoding.Default.GetString(requestingUserIdentity);
                 using var unitOfWork = UnitOfWorkFactory.Create();

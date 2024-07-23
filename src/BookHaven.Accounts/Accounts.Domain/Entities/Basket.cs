@@ -17,7 +17,7 @@ namespace BookHaven.Accounts.Domain.Entities
             if (item is not null)
                 item.Amount += amount;
             else
-                Items.Add(new BasketItem() { Amount = amount, Publication = publication});
+                Items.Add(new BasketItem() { Amount = amount, Publication = publication });
         }
 
         public void Clear()

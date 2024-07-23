@@ -1,5 +1,4 @@
 ﻿using BookHaven.Accounts.Domain.Entities;
-using BookHaven.Core.Domain.Entities.BookAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

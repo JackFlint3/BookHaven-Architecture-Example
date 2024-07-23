@@ -1,5 +1,4 @@
-﻿using BookHaven.Core.Domain.Intefaces;
-using System;
+﻿using System;
 
 namespace BookHaven.Core.Domain.Entities.BookAggregate
 {

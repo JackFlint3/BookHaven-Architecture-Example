@@ -1,5 +1,4 @@
 ﻿using BookHaven.Core.Infrastructure.Extensions;
-using BookHaven.Core.Infrastructure.Persistence.EFCore;
 using BookHaven.Orders.Application.Interfaces;
 using BookHaven.Orders.Infrastructure.Persistence.EFCore;
 using Microsoft.Extensions.DependencyInjection;

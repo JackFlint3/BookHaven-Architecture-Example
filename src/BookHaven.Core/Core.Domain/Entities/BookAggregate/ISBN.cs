@@ -9,7 +9,7 @@ namespace BookHaven.Core.Domain.Entities.BookAggregate
         public static TISBN FromString<TISBN>(string str)
             where TISBN : ISBN, new()
         {
-            return new TISBN() with { Value = str};
+            return new TISBN() with { Value = str };
         }
 
         public override string ToString()

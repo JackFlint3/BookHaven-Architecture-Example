@@ -1,5 +1,4 @@
 ﻿using BookHaven.Core.Domain.Intefaces;
-using System;
 using System.Collections.Generic;
 
 namespace BookHaven.Core.Domain.Entities
@@ -16,7 +15,7 @@ namespace BookHaven.Core.Domain.Entities
 
         protected AggregateRoot(TKey key) : base(key)
         {
-            
+
         }
 
     }

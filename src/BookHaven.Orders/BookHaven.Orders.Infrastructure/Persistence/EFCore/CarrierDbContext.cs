@@ -4,10 +4,6 @@ using BookHaven.Orders.Domain.Entities;
 using BookHaven.Orders.Infrastructure.Persistence.EFCore.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookHaven.Orders.Infrastructure.Persistence.EFCore
 {

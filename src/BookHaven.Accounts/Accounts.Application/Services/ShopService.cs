@@ -1,9 +1,7 @@
 ﻿using BookHaven.Accounts.Application.Interfaces;
 using BookHaven.Accounts.Application.Schema.DTO;
 using BookHaven.Core.Application.Interfaces;
-using BookHaven.Orders.Application.Interfaces;
 using System;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,10 +26,10 @@ namespace BookHaven.Accounts.Application.Services
             if (basketItem.Amount <= 0)
                 throw new Exception("Amount to be added to basket has to be greater 0");
 
-            var account = await UserAccessor.GetRequestingUserAsync() 
+            var account = await UserAccessor.GetRequestingUserAsync()
                 ?? throw new Exception("User has to be logged in");
 
-            var book = await unitOfWork.BookRepository.GetByISBNAsync(basketItem.Publication.ISBN) 
+            var book = await unitOfWork.BookRepository.GetByISBNAsync(basketItem.Publication.ISBN)
                 ?? throw new Exception($"Could not find a Book with ISBN of '{basketItem.Publication.ISBN}'");
 
             var isbn = book.Publications.FirstOrDefault(p => p.ToString() == basketItem.Publication.ISBN)
