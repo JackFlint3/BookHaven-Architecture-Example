@@ -2,6 +2,8 @@
 using BookHaven.Core.Domain.Entities.BookAggregate;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 
 namespace BookHaven.Orders.Domain.Entities
 {
@@ -16,22 +18,23 @@ namespace BookHaven.Orders.Domain.Entities
             if (IsDispatched)
                 throw new Exception("Cannot add items to an order that already is in transit");
 
-            foreach (var delivery in Deliveries)
-                if (delivery.Accepts(isbn))
+            var query = from delivery in Deliveries
+                        where delivery.Accepts(isbn)
+                        select delivery;
+
+            if (query.Any())
+                query.First().Add(isbn, amount);
+            else {
+                Delivery newDelivery = isbn switch
                 {
-                    delivery.Add(isbn, amount);
-                    return;
-                }
+                    EPUB or PDF => new DownloadDelivery() { Order = this },
+                    Print => new CarrierDelivery() { Order = this },
+                    _ => throw new Exception($"Unknown Delivery type for ISBN of type {isbn.GetType().Name}"),
+                };
 
-            Delivery newDelivery = isbn switch
-            {
-                EPUB or PDF => new DownloadDelivery(),
-                Print => new CarrierDelivery(),
-                _ => throw new Exception($"Unknown Delivery type for ISBN of type {isbn.GetType().Name}"),
-            };
-
-            newDelivery.Add(isbn, amount);
-            Deliveries.Add(newDelivery);
+                newDelivery.Add(isbn, amount);
+                Deliveries.Add(newDelivery);
+            }
         }
 
 
