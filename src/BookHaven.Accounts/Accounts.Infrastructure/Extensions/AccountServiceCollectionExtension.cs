@@ -13,12 +13,12 @@ namespace BookHaven.Accounts.Infrastructure.Extensions
         public static IServiceCollection AddAccounts(this IServiceCollection serviceDescriptors)
         {
             // configure DI
-            serviceDescriptors.AddBaseDbContext<ShopDbContext>();
+            //serviceDescriptors.AddBaseDbContext<ShopDbContext>();
             serviceDescriptors.AddDbContextFactory<ShopDbContext>((provider, options) => options.UseApplicationDatabase(provider));
             serviceDescriptors.AddUnitOfWorkFactory<ShopDbContext, IShopUnitOfWork>();
             serviceDescriptors.AddUnitOfWorkFactory<ShopDbContext, IAccountUnitOfWork>();
             serviceDescriptors.AddSingleton<IEmailService, DummyEmailService>();
-            serviceDescriptors.AddScoped<IRequestingUserAccessor, RequestingUserAccessor>();
+            serviceDescriptors.AddTransient<IRequestingUserAccessor, RequestingUserAccessor>();
             serviceDescriptors.AddSingleton<IMessageBroker, DummyMessageBroker>();
 
             return serviceDescriptors;

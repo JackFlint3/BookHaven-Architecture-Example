@@ -27,7 +27,7 @@ namespace BookHaven.Core.Infrastructure.Extensions
             where TUnitOfWork : IUnitOfWork
             where TDbContext : DbContext
         {
-            serviceDescriptors.AddScoped<IUnitOfWorkFactory<TUnitOfWork>>(
+            serviceDescriptors.AddTransient<IUnitOfWorkFactory<TUnitOfWork>>(
                     p => new UnitOfWorkFactory<TDbContext, TUnitOfWork>(p.GetRequiredService<IDbContextFactory<TDbContext>>())
                 );
 

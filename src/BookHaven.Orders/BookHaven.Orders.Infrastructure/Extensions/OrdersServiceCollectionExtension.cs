@@ -10,7 +10,7 @@ namespace BookHaven.Orders.Infrastructure.Extensions
         public static IServiceCollection AddOrders(this IServiceCollection serviceDescriptors)
         {
             // configure DI
-            serviceDescriptors.AddBaseDbContext<CarrierDbContext>();
+            //serviceDescriptors.AddBaseDbContext<CarrierDbContext>();
             serviceDescriptors.AddDbContextFactory<CarrierDbContext>((provider, options) => options.UseApplicationDatabase(provider));
             serviceDescriptors.AddUnitOfWorkFactory<CarrierDbContext, ICarrierUnitOfWork>();
 
