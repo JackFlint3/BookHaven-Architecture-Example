@@ -1,0 +1,10 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>340</x><y>620</y><w>440</w><h>40</h></coordinates><panel_attributes>lw=2
+Presentation / Application Root</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>470</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=.&gt;
+</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>530</y><w>360</w><h>40</h></coordinates><panel_attributes>lw=2
+Infrastructure</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>440</y><w>360</w><h>40</h></coordinates><panel_attributes>lw=2
+Application</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>350</y><w>440</w><h>40</h></coordinates><panel_attributes>lw=2
+Domain</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>560</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=.&gt;
+</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>380</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=.&gt;
+</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>380</y><w>30</w><h>170</h></coordinates><panel_attributes>lt=.&gt;
+</panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>470</y><w>30</w><h>170</h></coordinates><panel_attributes>lt=.&gt;
+</panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element></diagram>
