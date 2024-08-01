@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace BookHaven.Orders.Domain.Entities
 {
-    public class Order : AggregateRoot<Guid, Order>
+    public class Order : AggregateRoot<Guid>
     {
         public Destination? Destination { get; private set; }
         public bool IsDispatched { get; set; }

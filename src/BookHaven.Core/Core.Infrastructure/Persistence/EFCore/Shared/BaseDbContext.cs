@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BookHaven.Core.Infrastructure.Persistence.EFCore.Shared
@@ -64,6 +65,14 @@ namespace BookHaven.Core.Infrastructure.Persistence.EFCore.Shared
         {
             _transaction?.Dispose();
             return base.DisposeAsync();
+        }
+
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        {
+            // Dispatch DomainEvents here
+
+
+            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
     }
 }

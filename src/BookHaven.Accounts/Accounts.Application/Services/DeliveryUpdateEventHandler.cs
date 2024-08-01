@@ -23,7 +23,7 @@ namespace BookHaven.Accounts.Application.Services
         {
             using var unitOfWork = UnitOfWorkFactory.Create();
 
-            var account = unitOfWork.AccountRepository.FindAsEnumerable(a => a.Orders.Any(o => o.Deliveries.Any(d => d.Key == @event.Delivery.Key))).FirstOrDefault()
+            var account = (await unitOfWork.AccountRepository.FindByQueryAsync(a => a.Orders.Any(o => o.Deliveries.Any(d => d.Key == @event.Delivery.Key)))).FirstOrDefault()
                 ?? throw new Exception($"No account attributed to delivery {@event.Delivery.Key}");
 
             EmailDto email = new() { Content = @event.NewStatus, Email = account.Key.Value };

@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-
-#nullable enable
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace BookHaven.Core.Domain.Intefaces
 {
-    public interface IQueryRepository<TAggregate, TKey> : IDisposable
-        where TAggregate : IAggregateRoot<TAggregate, TKey>, IEntity<TKey>
-        where TKey : IEquatable<TKey>
+    public interface IQueryRepository<TEntity, TKey> : IDisposable
+        where TEntity : IEntity<TKey>
     {
-        IEnumerable<TAggregate> AsEnumerable();
-
-        public TAggregate? GetByKey(TKey key) => AsEnumerable().Where(aggregate => aggregate?.Key?.Equals(key) ?? false).FirstOrDefault();
-        public IEnumerable<TAggregate> FindAsEnumerable(Func<TAggregate, bool> predicate) => AsEnumerable().Where(predicate).ToList();
+        Task<ICollection<TEntity>> FindByQueryAsync(Expression<Func<TEntity, bool>> predicate, string[] includedProperties = null);
     }
 }

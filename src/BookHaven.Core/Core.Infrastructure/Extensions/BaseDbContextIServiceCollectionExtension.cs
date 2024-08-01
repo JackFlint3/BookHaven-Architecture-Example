@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -11,26 +12,38 @@ namespace BookHaven.Core.Infrastructure.Extensions
         public static DbContextOptionsBuilder UseApplicationDatabase(this DbContextOptionsBuilder options, IServiceProvider provider)
         {
             var configuration = provider.GetRequiredService<IConfiguration>();
-            var connectionString = configuration.GetValue<string>("ConnectionString");
+            var connectionString = configuration.GetConnectionString("SqLite");
 
             if (string.IsNullOrEmpty(connectionString))
                 throw new ApplicationException("The ConnectionString is not set.");
 
             var loggerFactory = provider.GetRequiredService<ILoggerFactory>();
 
-            options.UseSqlServer(connectionString, sqlOptions =>
+            if (connectionString.Contains("Data Source=:memory:"))
             {
-#if DEBUG
-            })
-                .UseLoggerFactory(loggerFactory)
-#if TRACE
+                var connection = new SqliteConnection(connectionString);
+                connection.Open();
+                options.UseSqlite(connection)
+                    .UseLoggerFactory(loggerFactory)
                     .EnableSensitiveDataLogging()
+                    .EnableDetailedErrors();
+            }
+            else
+            {
+                options.UseSqlite(connectionString, sqlOptions =>
+                {
+#if DEBUG
+                })
+                    .UseLoggerFactory(loggerFactory)
+#if TRACE
+                        .EnableSensitiveDataLogging()
 #endif
-                    .EnableDetailedErrors()
+                        .EnableDetailedErrors()
 #else
                     })
 #endif
-                    ;
+                        ;
+            }
 
             return options;
         }

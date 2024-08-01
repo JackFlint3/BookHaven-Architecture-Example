@@ -27,7 +27,7 @@ namespace BookHaven.Accounts.Infrastructure.RequestingUser
             {
                 var email = System.Text.Encoding.Default.GetString(requestingUserIdentity);
                 using var unitOfWork = UnitOfWorkFactory.Create();
-                var account = unitOfWork.AccountRepository.FindAsEnumerable(a => a.Key.Equals(email)).FirstOrDefault();
+                var account = (await unitOfWork.AccountRepository.FindByQueryAsync(a => a.Key.Equals(email))).FirstOrDefault();
                 return account;
             }
             else return null;

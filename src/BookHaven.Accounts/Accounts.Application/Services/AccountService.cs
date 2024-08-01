@@ -71,7 +71,7 @@ namespace BookHaven.Accounts.Application.Services
         public async Task LoginAsync(AccountLoginDto accountLogin)
         {
             using var unitOfWork = UnitOfWorkFactory.Create();
-            var probingAccount = unitOfWork.AccountRepository.FindAsEnumerable(a => a.Key.Equals(accountLogin.EMail)).FirstOrDefault();
+            var probingAccount = (await unitOfWork.AccountRepository.FindByQueryAsync(a => a.Key.Equals(accountLogin.EMail))).FirstOrDefault();
             if (probingAccount == null || !probingAccount.MatchesPassword(accountLogin.Password))
                 throw new Exception("Invalid Email or Password provided");
 
@@ -90,7 +90,7 @@ namespace BookHaven.Accounts.Application.Services
             if (registration.EMail is null)
                 throw new Exception("Email cannot be null");
 
-            var existingAccount = unitOfWork.AccountRepository.FindAsEnumerable(a => a.Key.Equals(registration.EMail)).FirstOrDefault();
+            var existingAccount = (await unitOfWork.AccountRepository.FindByQueryAsync(a => a.Key.Equals(registration.EMail))).FirstOrDefault();
             if (existingAccount is not null)
                 throw new Exception($"Account with email '{registration.EMail}' already exists.");
 

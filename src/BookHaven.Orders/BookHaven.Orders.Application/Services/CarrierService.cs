@@ -23,7 +23,7 @@ namespace BookHaven.Orders.Application.Services
             using var unitOfWork = UnitOfWorkFactory.Create();
             unitOfWork.Begin();
 
-            var order = unitOfWork.OrderRepository.FindAsEnumerable(o => o.Deliveries.Any(d => d.Key == delivery.Key)).FirstOrDefault()
+            var order = (await unitOfWork.OrderRepository.FindByQueryAsync(o => o.Deliveries.Any(d => d.Key == delivery.Key))).FirstOrDefault()
                 ?? throw new Exception("Cannot update status for nonexistent Delivery");
             var failingDelivery = order.Deliveries.Where(d => d.Key == delivery.Key).First();
             failingDelivery.UpdateCarrierStatus("Failed");
@@ -37,7 +37,7 @@ namespace BookHaven.Orders.Application.Services
             using var unitOfWork = UnitOfWorkFactory.Create();
             unitOfWork.Begin();
 
-            var order = unitOfWork.OrderRepository.FindAsEnumerable(o => o.Deliveries.Any(d => d.Key == delivery.Key)).FirstOrDefault()
+            var order = (await unitOfWork.OrderRepository.FindByQueryAsync(o => o.Deliveries.Any(d => d.Key == delivery.Key))).FirstOrDefault()
                 ?? throw new Exception("Cannot update status for nonexistent Delivery");
             var updatingDelivery = order.Deliveries.Where(d => d.Key == delivery.Key).First();
             updatingDelivery.UpdateCarrierStatus(delivery.Status ?? "");
@@ -50,7 +50,7 @@ namespace BookHaven.Orders.Application.Services
             using var unitOfWork = UnitOfWorkFactory.Create();
             unitOfWork.Begin();
 
-            var order = unitOfWork.OrderRepository.FindAsEnumerable(o => o.Deliveries.Any(d => d.Key == @event.Delivery.Key)).FirstOrDefault()
+            var order = (await unitOfWork.OrderRepository.FindByQueryAsync(o => o.Deliveries.Any(d => d.Key == @event.Delivery.Key))).FirstOrDefault()
                 ?? throw new Exception("Cannot update status for nonexistent Delivery");
             var startingDelivery = order.Deliveries.Where(d => d.Key == @event.Delivery.Key).First();
             startingDelivery.UpdateCarrierStatus("Started");

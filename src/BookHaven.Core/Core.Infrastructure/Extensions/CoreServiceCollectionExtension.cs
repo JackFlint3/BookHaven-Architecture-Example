@@ -1,4 +1,5 @@
-﻿using BookHaven.Core.Infrastructure.Persistence.EFCore;
+﻿using BookHaven.Core.Application.Interfaces;
+using BookHaven.Core.Infrastructure.Persistence.EFCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BookHaven.Core.Infrastructure.Extensions
@@ -8,9 +9,8 @@ namespace BookHaven.Core.Infrastructure.Extensions
         public static IServiceCollection AddCore(this IServiceCollection serviceDescriptors)
         {
             // configure DI
-            //serviceDescriptors.AddBaseDbContext<CoreDbContext>();
             serviceDescriptors.AddDbContextFactory<CoreDbContext>((provider, options) => options.UseApplicationDatabase(provider));
-
+            serviceDescriptors.AddUnitOfWorkFactory<CoreDbContext, ICoreUnitOfWork>();
             return serviceDescriptors;
         }
     }

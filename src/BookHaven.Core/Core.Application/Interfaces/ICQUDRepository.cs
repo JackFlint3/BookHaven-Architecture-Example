@@ -3,8 +3,8 @@ using System;
 
 namespace BookHaven.Core.Application.Interfaces
 {
-    public interface ICQUDRepository<TAggregate, TKey> : IQueryRepository<TAggregate, TKey>, ICUDRepository<TAggregate, TKey>
-        where TAggregate : IAggregateRoot<TAggregate, TKey>, IEntity<TKey>
+    public interface ICQUDRepository<TEntity, TKey> : IQueryRepository<TEntity, TKey>, ICUDRepository<TEntity, TKey>
+        where TEntity : IEntity<TKey>
         where TKey : IEquatable<TKey>
     {
     }

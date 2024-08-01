@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace BookHaven.Accounts.Domain.Entities
 {
-    public class Account : AggregateRoot<Email, Account>
+    public class Account : AggregateRoot<Email>
     {
         public Basket Basket { get; set; } = new Basket();
         public Address? Address { get; set; }

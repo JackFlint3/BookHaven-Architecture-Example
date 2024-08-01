@@ -24,6 +24,7 @@ namespace BookHaven.UI.AspNetCore
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHostedService<HostedService>();
             services.AddHttpContextAccessor();
 
             services.AddCore();

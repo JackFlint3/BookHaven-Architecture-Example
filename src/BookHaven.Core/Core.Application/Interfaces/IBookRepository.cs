@@ -8,9 +8,9 @@ namespace BookHaven.Core.Application.Interfaces
 {
     public interface IBookRepository : IQueryRepository<Book, Guid>
     {
-        Task<Book?> GetByISBNAsync(string ISBN) =>
-            Task.FromResult(this.FindAsEnumerable(b => b.Publications.Any(p => p.Equals(ISBN))).FirstOrDefault());
-        Task<Book?> GetByGuidAsync(Guid id) =>
-            Task.FromResult(this.FindAsEnumerable(b => b.Key == id).FirstOrDefault());
+        async Task<Book?> GetByISBNAsync(string ISBN) =>
+            (await this.FindByQueryAsync(b => b.Publications.Any(p => p.Equals(ISBN)))).FirstOrDefault();
+        async Task<Book?> GetByGuidAsync(Guid id) =>
+            (await this.FindByQueryAsync(b => b.Publications.Any(p => p.Equals(id)))).FirstOrDefault();
     }
 }

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace BookHaven.Core.Domain.Entities
 {
-    public abstract class AggregateRoot<TKey, TRoot>
-        : Entity<TKey>, IAggregateRoot<TRoot, TKey>
-        where TRoot : Entity<TKey>
+    public abstract class AggregateRoot<TKey>
+        : Entity<TKey>, IAggregateRoot<TKey>
     {
         ICollection<IDomainEvent> IDomainEventKeeper.DomainEvents { get; set; }
 

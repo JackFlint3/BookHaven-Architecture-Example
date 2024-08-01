@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BookHaven.Core.Domain.Entities.BookAggregate
 {
-    public class Book : AggregateRoot<Guid, Book>
+    public class Book : AggregateRoot<Guid>
     {
         public Cover Cover { get; private set; }
         public IReadOnlyCollection<ISBN> Publications { get; private set; }
